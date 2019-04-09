@@ -1,4 +1,4 @@
-package sample;
+package sample.models;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -35,8 +35,8 @@ public class Artikal {
     public Artikal(String sifraNazivCijena) throws IllegalArgumentException {
         String[] podjeljeniSifraNazivCijena = sifraNazivCijena.split(",");
         if(podjeljeniSifraNazivCijena.length > 2) {
-            this.šifra = podjeljeniSifraNazivCijena[0];
-            this.naziv = podjeljeniSifraNazivCijena[1];
+            this.šifra = podjeljeniSifraNazivCijena[0].trim();
+            this.naziv = podjeljeniSifraNazivCijena[1].trim();
             this.cijena = Double.parseDouble(podjeljeniSifraNazivCijena[2]);
         }   else {
             throw new IllegalArgumentException("Nedovoljan broj parametara");
@@ -82,7 +82,7 @@ public class Artikal {
 
     public static ArrayList<Artikal> izbaciDuplikate(ArrayList<Artikal> artikli) {
         for(int i = 0;i < artikli.size();i++) {
-            for(int j = i; j < artikli.size();j++) {
+            for(int j = i + 1; j < artikli.size();j++) {
                 Artikal trenutniArtikalZaPordjenje = artikli.get(i);
                 Artikal sljedeciArtikalZaPoredjenje = artikli.get(j);
                 if(trenutniArtikalZaPordjenje.equals(sljedeciArtikalZaPoredjenje)) {
@@ -100,7 +100,10 @@ public class Artikal {
     }
 
     public boolean equals(Object o) {
-        var artikal = (Artikal)o;
+        Artikal artikal = (Artikal)o;
+        if(artikal == null) {
+            return false;
+        }
         return this.cijena == artikal.cijena &&
                 this.naziv.equals(artikal.naziv) &&
                 this.šifra.equals(artikal.šifra);

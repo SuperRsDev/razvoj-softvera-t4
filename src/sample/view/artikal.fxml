@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<GridPane fx:controller="sample.controllers.ArtikalController" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <TextArea fx:id="artikliZaUnos" prefHeight="200.0" prefWidth="200.0"
+              GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <GridPane.margin>
+            <Insets right="20" left="20" top="10" bottom="25"/>
+        </GridPane.margin>
+    </TextArea>
+    <Button mnemonicParsing="false" onAction="#dodajArtikale" text="Dodaj artikle"
+            GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <TextArea fx:id="artikliBezDuplikata" disable="true" prefHeight="200.0" prefWidth="200.0"
+              GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <GridPane.margin>
+            <Insets right="20" left="20" bottom="40"/>
+        </GridPane.margin>
+    </TextArea>
+</GridPane>
